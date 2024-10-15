@@ -252,3 +252,182 @@ const numero7 = Symbol(2);             // Símbolo
 const numero8 = Symbol(2.0);           // Símbolo
 const numero9 = Symbol("2");           // Símbolo con descripción
 const numero10 = Symbol(2);            // Otro símbolo
+
+// Prueba de comparación 1: ¿Es 2 == 2.0?
+console.log("Prueba de comparación 1:");
+if(numero3 == numero4){
+    console.log(`Se han comparado los valores de numero3 y numero4, confirmando que tienen el mismo valor.`);
+} else {
+    console.log(`Se han comparado los valores de numero3 y numero4, detectando que NO tienen el mismo valor.`);
+}
+
+// Prueba de comparación 2: ¿Es 2 == "2"?
+console.log("Prueba de comparación 2:");
+if(numero3 == numero5)
+    console.log(`Se han comparado los valores de numero3 y numero5, confirmando que tienen el mismo valor.`);
+ else 
+    console.log(`Se han comparado los valores de numero3 y numero5, detectando que NO tienen el mismo valor.`);
+
+// Prueba de comparación 3: ¿Es 2 === "2"?
+/* 
+= Es asignación 
+== Igualdad de valor
+=== Igualdad estricta (compara valor y tipo de dato)
+*/
+console.log("Prueba de comparación 3:");
+if(numero3 === numero5)
+    console.log(`Se han comparado los valores de numero3 y numero5, confirmando que tienen el mismo valor.`);
+ else 
+    console.log(`Se han comparado los valores de numero3 y numero5, detectando que NO tienen el mismo valor.`);
+
+// Prueba de comparación 4: ¿Es 2 == "2.0"?
+console.log("Prueba de comparación 4:");
+if(numero3 == numero6)
+    console.log(`Se han comparado los valores de numero3 y numero6, confirmando que tienen el mismo valor.`);
+else 
+    console.log(`Se han comparado los valores de numero3 y numero6, detectando que NO tienen el mismo valor.`);
+
+// Prueba de comparación 5: ¿Es 2 === "2.0"?
+console.log("Prueba de comparación 5:");
+if(numero3 === numero6)
+    console.log(`Se han comparado los valores de numero3 y numero6, confirmando que tienen el mismo valor.`);
+else 
+    console.log(`Se han comparado los valores de numero3 y numero6, detectando que NO tienen el mismo valor.`);
+
+// Prueba de comparación 6: ¿Es 238 == Symbol(2)? 
+console.log("Prueba de comparación 6");
+if (numero1 == numero7)
+    console.log(`Se han comparado los valores de numero1 y numero7, confirmando que tienen el mismo valor.`);
+else 
+    console.log(`Se han comparado los valores de numero1 y numero7, detectando que NO tienen el mismo valor.`);
+
+// Prueba de comparación 7: ¿Es 238 === Symbol(2)? 
+console.log("Prueba de comparación 7");
+if (numero1 === numero7)
+    console.log(`Se han comparado los valores de numero1 y numero7, confirmando que tienen el mismo valor.`);
+else 
+    console.log(`Se han comparado los valores de numero1 y numero7, detectando que NO tienen el mismo valor.`);
+
+// Prueba de comparación 8: ¿Es Symbol(2) == Symbol(2)? 
+console.log("Prueba de comparación 8: ¿Es Symbol(2) = Symbol(2)?");
+if (numero1 == numero10)
+    console.log(`Se han comparado los valores de numero1 y numero10, confirmando que tienen el mismo valor.`);
+else 
+    console.log(`Se han comparado los valores de numero1 y numero10, detectando que NO tienen el mismo valor.`);
+
+// Prueba de comparación 9: ¿Es Symbol(2) === Symbol(2)? 
+console.log("Prueba de comparación 9: ¿Es Symbol(2) estrictamente = Symbol(2)?");
+if (numero1 === numero10)
+    console.log(`Se han comparado los valores de numero1 y numero10, confirmando que tienen el mismo valor.`);
+else 
+    console.log(`Se han comparado los valores de numero1 y numero10, detectando que NO tienen el mismo valor.`);
+
+// 7. Null
+// Muestra una advertencia en la consola indicando que se tratará el tipo de dato NULL
+console.warn("--- Tipo de Dato Nulo - NULL (Nulo o Vacío)");
+
+// El tipo de dato nulo se asigna cuando el sistema o el usuario saben de la variable pero prefieren dejarlo vacío, bajo su consentimiento, a diferencia de UNDEFINED que es un valor desconocido asignado por DEFAULT por JS.
+
+// Declaración de variables relacionadas con el perfil del usuario, inicialmente asignadas a 'null' o sin asignar valor
+let perfilUsuario = null;
+let passUsuario = null;
+let generoUsuario = null;
+let estatusRelacionSentimental = null;
+let fecha_ultimoPost;
+
+// Supongamos que estamos programando una Red Social, tipo Facebook, en la que parte de la información se publicará en el perfil del usuario.
+
+// Si el usuario no ha iniciado sesión en el dispositivo móvil o en la aplicación web, puede explorar contenido de acceso público y no existirá información para mostrar.
+
+// En la HU (Historia de Usuario), que el usuario desea logearse deberá ingresar su número telefónico o correo electrónico y una contraseña que deberemos guardar en las variables previamente declaradas.
+
+// Supongamos que el usuario: Marco R. con correo electrónico marco.ram@gmail.com desea ingresar con su contraseña: pass1234
+
+// Asigna el correo electrónico a la variable 'nombreUsuario'
+nombreUsuario = "marco.ram@gmail.com";
+
+// Asigna la contraseña a la variable 'passUsuario'
+passUsuario = "pass123";
+
+// En este momento de ejecución del sistema no sabemos su género, ni su estatus de relación sentimental.
+
+// Imprime en la consola que el usuario está intentando logearse con la contraseña proporcionada
+console.log(`El usuario: ${nombreUsuario} está intentando logear con una contraseña de: ${passUsuario}`);
+
+// Lo que prosigue es que el sistema contará los datos ingresados con la base de datos y en caso de que los datos sean correctos comenzará la sesión en la plataforma actualizando estos valores.
+
+// Dado que Marco es del género Masculino, y denota que su estatus de relación no ha sido capturado o lo mantiene privado, esto genera la actualización de los valores de las variables
+generoUsuario = "M";
+estatusRelacionSentimental = null;
+
+// Imprime en la consola que el usuario se ha logeado exitosamente, mostrando su género y estatus de relación, aunque este último sigue siendo 'null'
+console.log(`El usuario: ${nombreUsuario}, se ha logeado exitosamente, al tener acceso a su información de perfil podemos deducir que es del género ${generoUsuario} y que su estatus de relación es ${estatusRelacionSentimental} y su última publicación la realizó el: ${fecha_ultimoPost}`);
+// El symbol los hace únicos  
+
+// Comparando NULL vs UNDEFINED 
+// Si bien UNDEFINED y NULL tienen el mismo valor, no tienen el mismo tipo de dato 
+console.log("Comparación de la equidad entre UNDEFINED y NULL");
+
+// Compara si 'fecha_ultimoPost' y 'estatusRelacionSentimental' tienen el mismo valor usando '=='
+console.log(
+    (fecha_ultimoPost == estatusRelacionSentimental)?
+    `Ambas variables tienen el mismo valor`:
+    `Las variables no tienen el mismo valor`
+);
+
+// Compara si 'fecha_ultimoPost' y 'estatusRelacionSentimental' tienen el mismo valor y tipo usando '==='
+console.log("Comparación de la identidad entre UNDEFINED y NULL");
+console.log(
+    (fecha_ultimoPost === estatusRelacionSentimental)?
+    `Ambas variables tienen el mismo valor y el mismo tipo de dato `:
+    `Las variables tienen el mismo valor, pero no el mismo tipo de dato`
+);
+
+// 8. Function (Funciones)
+
+// Declaramos una función que recibe un parámetro 'nombre' y retorna un saludo personalizado, asignada a una constante 'saludar'
+const saludar = function(nombre){ return `Hola, ${nombre}` }
+
+// Invocamos a la función 'saludar' pasando "Marco" como argumento e imprimimos el saludo resultante
+console.log(saludar("Marco"));
+
+// Imprime el tipo de dato de la constante 'saludar', que es 'function'
+console.log (`El tipo de dato de la constante saludar es : ${typeof(saludar)}` )
+
+
+/// String o CADENAS DE TEXTO 
+
+// Las siguientes líneas están comentadas y no se ejecutarán
+// const alumno = "Juan"
+// let producto = "monitor 20 pulgadas "
+
+// const numero = "30"
+// const numero2 = 30
+
+// console.log (typeof numero)
+// console.log (typeof numero2)
+
+// BigInt
+// const numeroGrande = BigInt(5165416419561971649645165646565)
+// console.log(typeof numeroGrande)
+
+// const numero = 10
+// const numero2 = 20
+
+// console.log(numero + Number(numeroGrande))
+
+// const numero = "30"
+// const numero2 = 20
+// console.log(typeof String(numero2))
+// console.log(typeof Number(numero))  
+
+// Symbol
+// const primerSymbol = Symbol(30)
+// const segundoSymbol = Symbol(30)
+// console.log(primerSymbol === segundoSymbol)
+// console.log(primerSymbol.valueOf())
+// console.log(segundoSymbol.valueOf())
+
+// Null 
+// const descuento = null 
+// console.log (typeof descuento)
