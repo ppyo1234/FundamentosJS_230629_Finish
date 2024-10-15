@@ -277,3 +277,127 @@ console.table(estudiantes);
 // Utiliza 'splice' con dos parámetros para eliminar 5 elementos a partir de la posición 3
 console.log("Ahora ya tenemos los elementos suficientes para aplicar el método splice con dos parámetros que serán 3,5");
 estudiantes.splice(3, 5);
+
+// Imprime el arreglo de estudiantes después de aplicar 'splice' con dos parámetros
+console.log("Resultando en: ");
+console.table(estudiantes);
+
+// Utiliza 'splice' para insertar elementos en posiciones específicas
+// Inserta "Dulce" en la posición 1 sin eliminar ningún elemento
+console.log("Ahora vamos a insertar a \"Dulce\" en los elementos de la posición 1 y 2");
+estudiantes.splice(1, 0, "Dulce");
+
+// Imprime el arreglo de estudiantes después de insertar un nuevo elemento
+console.log("Resultando en:");
+console.table(estudiantes);
+
+// Utiliza 'splice' para reemplazar elementos en el arreglo
+// Reemplaza el elemento en la posición 0 con "Al farias"
+console.log("Ahora vamos a reemplazar a \"Michelle\" en los elementos de la posición 0 por \"Al farias\"");
+estudiantes.splice(0, 1, "Al farias");
+
+// Imprime el arreglo de estudiantes después de reemplazar un elemento
+console.log("Resultando en:");
+console.table(estudiantes);
+
+// Métodos para la manipulación de Arreglos INMUTABLES
+console.log("%c10.- Métodos para la manipulación de Arreglos INMUTABLES ", style_console);
+
+// Declaración de un arreglo de signos zodiacales
+let signosZodiacales = ["Aries", "Tauro", "Geminis", "Cáncer", "Leo", "Virgo", "Libra", "Escorpio", "Sagitario", "Capricornio", "Acuario", "Piscis"];
+
+// Congela el arreglo 'signosZodiacales' para hacerlo inmutable
+Object.freeze(signosZodiacales);
+
+// Comentario sobre métodos que no se ejecutarán debido a la inmutabilidad del arreglo
+// Ninguna se ejecuta porque nuestro arreglo es inmutable
+/*
+signosZodiacales.push("Ofiuco");
+signosZodiacales.unshift();
+signosZodiacales.splice(6,2);
+*/
+
+// Destructuración de un arreglo utilizando la sintaxis de desestructuración
+let [signo1, , signo3, , , , signo7, , , , , ] = signosZodiacales;
+
+// Imprime el primer signo zodiacal
+console.log(`El primer signo zodiacal es : ${signo1}`);
+
+// Imprime el tercer signo zodiacal
+console.log(`El tercer signo zodiacal es : ${signo3}`);
+
+// Intenta modificar una variable extraída por desestructuración (esto no afecta al arreglo original)
+signo7 = "Naranja";
+console.log(`El séptimo signo zodiacal es : ${signo7}`);
+
+// Filtrado de Elemento dentro de un arreglo utilizando el método FILTER
+console.log("%c11.- Filtrado de Elemento dentro de un arreglo utilizando el método FILTER", style_console);
+
+// Imprime los elementos actuales del arreglo de estudiantes
+console.table(estudiantes);
+
+// Agrega más elementos al arreglo de estudiantes para tener suficientes datos para filtrar
+estudiantes.push("ppyin");
+estudiantes.push("tere");
+estudiantes.push("mauricio");
+estudiantes.push("matias");
+estudiantes.push("Jonathan Emannuel");
+estudiantes.push("Daniel");
+
+// Imprime el arreglo de estudiantes después de agregar nuevos elementos
+console.table(estudiantes);
+
+// Congela el arreglo de estudiantes para hacerlo inmutable
+Object.freeze(estudiantes);
+
+// 'filter' es un método que recorre los elementos de un arreglo y devuelve un nuevo arreglo con los elementos que cumplen una condición específica
+console.log("Filtrando los primeros 5 elementos");
+
+// Filtra los primeros 5 elementos del arreglo de estudiantes
+let nuevoEstudiantes = estudiantes.filter((estudiante, index) => index < 5);
+console.table(nuevoEstudiantes);
+
+// Otra forma de filtrar los primeros 5 elementos utilizando una función personalizada
+console.table(filtraPrimeros5(estudiantes));
+
+// Filtrar a los estudiantes cuyo nombre tenga más de 15 caracteres
+let nuevoEstudiantesNombre = estudiantes.filter((estudiante) => estudiante.length > 15);
+console.table(nuevoEstudiantesNombre);
+
+// Intento de modificar el arreglo inmutable (no tendrá efecto debido a Object.freeze)
+/*estudiantes.pop()
+console.table(estudiantes)*/
+
+// Intento de modificar el nuevo arreglo que no ha sido congelado
+nuevoEstudiantes.unshift("Adrian");
+console.table(nuevoEstudiantes);
+
+// Definición de una función que filtra los primeros 5 elementos de un arreglo
+function filtraPrimeros5(arregloEstudiantes){
+    let listaFiltrada = [];
+    for(let i = 0; i < 5; i++){
+        listaFiltrada.push(arregloEstudiantes[i]);
+    }
+    return listaFiltrada;
+}
+
+// Filtrado de datos y transformación de los mismos utilizando el método MAP
+console.log("%c12.- Filtrado de Elemento dentro de un arreglo utilizando el método MAP, en el que necesitamos transformarlos", style_console);
+
+// Imprime los elementos actuales de signosZodiacales
+console.log("Imprimimos los elementos actuales de signosZodiacales:");
+console.log(signosZodiacales);
+
+// Utiliza 'map' para transformar cada elemento del arreglo a mayúsculas
+console.table(signosZodiacales.map(signoZodiacal => signoZodiacal.toUpperCase()));
+
+// Reducción de elementos de un arreglo utilizando el método REDUCE
+// Se usa para realizar operaciones matemáticas o cuantitativas, como obtener totales
+const costosListaCompras = [15, 52.50, 16.90, 32.50, 28, 105, 45.2, 94.10];
+
+// Imprime los precios actuales en la lista de compras
+console.log("Los precios son: ");
+console.table(costosListaCompras);
+
+// Calcula el total de la compra sumando todos los elementos del arreglo
+console.log(`El total de la compra es: ${costosListaCompras.reduce((total, precio) => total + precio, 0).toFixed(2)}`);
