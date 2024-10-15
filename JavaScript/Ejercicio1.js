@@ -51,3 +51,38 @@ console.log ("miUniversidad es del tipo ",typeof(miUniversidad));
 // Imprime el tipo de dato de 'miMatricula' utilizando typeof
 console.log ("miMatricula es del tipo ",typeof(miMatricula));
 
+// Imprime el tipo de dato de 'miEdad' utilizando typeof
+console.log ("miEdad es del tipo ",typeof(miEdad));
+
+
+// c) LET
+
+// Declaración de una variable 'miFechaNacimiento' utilizando let y asignación de un valor de tipo cadena de texto
+let miFechaNacimiento = "2005-08-23";
+
+// Declaración de una variable 'miColorFavorito' utilizando let sin asignar un valor inicialmente
+let miColorFavorito;
+
+// Muestra una advertencia en la consola indicando el inicio de la declaración de variables con let
+console.warn("--- Declaración de variables usando : let ");
+
+// Imprime en la consola un mensaje con las variables declaradas, incluyendo 'miColorFavorito' que aún no tiene valor
+console.log ("Genial, te voy conociendo mejor, ahora sé que naciste el :",miFechaNacimiento," y tu color favorito es : ",miColorFavorito);
+
+// Asigna un valor a la variable 'miColorFavorito'
+miColorFavorito = "Negro";
+
+// Imprime en la consola un mensaje utilizando template literals para incluir 'miColorFavorito'
+console.log (`Creo que es ${miColorFavorito}, le acerté`);
+
+
+console.warn("--- Analizar datos ");
+
+// Imprime un mensaje indicando que se analizarán nuevamente los tipos de datos
+console.log("Analizando los datos puedo decir que: ");
+
+// Imprime el tipo de dato de 'miColorFavorito' utilizando typeof
+console.log("miColorFavorito es del tipo: ",typeof(miColorFavorito));
+
+// Imprime el tipo de dato de 'miFechaNacimiento' utilizando typeof
+console.log("miFechaNacimiento es del tipo: ",typeof(miFechaNacimiento));
