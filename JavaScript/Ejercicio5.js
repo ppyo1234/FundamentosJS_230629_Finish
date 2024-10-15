@@ -298,3 +298,105 @@ let indice  = 0;
 let continuarViendo = true; // Esta variable simula la decisiónn del usuario de continuar viendo 
 
  
+
+do{
+    console.log (`Reproduciendo ${episodios[indice]}`)
+  
+    indice++
+  
+    //Simulamos la repreoducción del episodio
+    if(indice < episodios.length){
+      continuarViendo = confirm("¿Deseas continuar con el siguiente episodio ?")
+    }else{
+      continuarViendo = false; // Cuando se acaba la lista de episodios 
+    }
+  } while(continuarViendo && indice < episodios.length); // primero evalua y luego ejecuta
+  
+  console.log("Fin de la reproducción.");
+  
+  
+  // Ciclo para recorrer objetos iterables como mapas , cadenas y conjuntos de datos.
+  console.log("%c9.-Ciclo para recorrer elementos finitos - (FOR ... OF)",style_console);
+  
+  
+  
+  let seriesTrending = [
+      {nombre:"Stranger Things", temporada: 2,totalViewers: "1.5M",totalReprods: "10.5M"},
+      {nombre:"Propuesta Laboral", temporada: 1,totalViewers: "4.5M",totalReprods: "14.5M"},
+      {nombre:"Betty la Fea", temporada: 2,totalViewers: "8.5M",totalReprods: "18.5M"},
+      {nombre:"Lazy Town", temporada: 5,totalViewers: "14.5M",totalReprods: "20.5M"},
+      {nombre:"La Casa de Papel", temporada: 2,totalViewers: "7.5M",totalReprods: "16.5M"}
+  
+      
+  
+  ];
+  
+  //Usando for ... of para recorrer la lista
+  
+  for(let serie of seriesTrending){
+    console.log(`Serie ${serie.nombre},Temporadas: ${serie.temporada}`)
+  }
+  try{
+    console.log(`la ultima serie leida fué: ${serie.nombre}`);
+  }
+  catch (error){
+    console.log("Mensaje de error: "+error.message)
+  }
+  
+  console.log("%c10.-Ciclo para recorrer Las propiedades de elementos  finitos - (FOR ... IN)",style_console);
+  
+  //Usando for..in para recorrer cada serie 
+  
+  for(let i in seriesTrending){
+    console.log(`Serie ${parseInt(i)+1}:`)
+    for (let propiedad in seriesTrending[i]){
+      console.log(`${propiedad}:${seriesTrending[i][propiedad]}`)
+    }
+    
+  }
+  console.log("-----------------------")
+  
+  console.log("%c11.-Ciclos interrumpidos para cada uno demlos elementos del arreglo - (FOR EACH)",style_console);
+  
+  // Listas de series de TV trending con temporadas , viewers y reproducciones 
+  
+  let seriesTrending2 = [
+    {nombre: "La bruja ",temporada:3,Viewers : 4541,reproducciones:524834513},
+    {nombre: "La Otra ",temporada:4,Viewers : 4541,reproducciones:524834513},
+    {nombre: "La Sotana ",temporada:3,Viewers : 4541,reproducciones:524834513},
+    {nombre: "La Madrina ",temporada:2,Viewers : 4541,reproducciones:524834513},
+    {nombre: "La Mosca ",temporada:4,Viewers : 4541,reproducciones:524834513}
+  
+  ];
+  
+  //Usando forEach para recorrer cada serie y calcular la calificacion 
+    seriesTrending2.forEach((serie,index)=>{
+      let calificacion = (serie.reproducciones / serie.Viewers).toFixed(2); // Calcula la calificacion y la redondea a 2 decimales 
+  
+      console.log(`Serie ${index +1}:`);
+      console.log(`Nombre ${serie.nombre}`);
+      console.log(`Temporadas: ${serie.temporadas}`);
+      console.log(`Viewers: ${serie.viewers}`);
+      console.log(`Reproducciones: ${serie.reproducciones}`);
+      console.log(`Calificación: ${calificacion}`);
+      console.log(`----------------------------------`);
+    })
+  
+    // Usando filter para filtrar y map para transformar la información
+    //Lista de series que queremos verificar 
+    let seriesDeseadas = ["La Madrina ","La Mosca ", "La bruja "];
+  
+    //Usando map e includes para filtrar y obtener los nombres de series con 3 temporadas
+    let sereiesConTresTemporadas = seriesTrending2 
+      .filter(serie => serie.temporada <= 3)
+  
+      .map (serie => serie.nombre) //Obtenemos solo los nombres de esas series 
+      .filter (nombre =>seriesDeseadas.includes(nombre)) 
+  
+  console.log("Series con menos de tres temporadas")
+  console.log(sereiesConTresTemporadas)
+  
+  
+  
+  
+  
