@@ -258,3 +258,116 @@ if (productoPrecio > 2000) {
 } else {
     productoPrecio = "Barato" // De lo contrario, se clasifica como 'barato'
 }
+
+if (clienteSaldo > 0) {
+    clienteSaldo = "A favor" // Si el saldo es positivo, se indica 'A favor'
+} else if (clienteSaldo < 0) {
+    clienteSaldo = "En contra" // Si el saldo es negativo, se indica 'En contra'
+} else {
+    clienteSaldo = "Sin deuda" // Si el saldo es cero, se indica 'Sin deuda'
+}
+
+// Transformación de valores cualitativos en cuantitativos (aunque parece haber un error en la lógica)
+let clienteNivel;
+
+if (clienteTipo == "Premium") {
+    clienteNivel = 1 // Nivel 1 para 'Premium'
+}
+if (clienteTipo == "Freemium") { // Debería ser 'clienteTipo' en vez de 'clienteNivel'
+    clienteNivel = 2 // Nivel 2 para 'Freemium'
+}
+if (clienteTipo == "No identificado") { // Debería ser 'clienteTipo' en vez de 'clienteNivel'
+    clienteNivel = 3 // Nivel 3 para 'No identificado'
+}
+
+// Clasificación del cliente por su país de origen
+if (clientePais == "México") {
+    clientePais = "Nacional" // Si el país es México, se clasifica como 'Nacional'
+} else {
+    clientePais = "Extranjero" // De lo contrario, se clasifica como 'Extranjero'
+}
+
+// OLE - Object Literal Enhancement
+// Crea un nuevo objeto 'datosClientesPromociones' utilizando la sintaxis de Object Literal Enhancement para agrupar los datos transformados
+let datosClientesPromociones = { clienteCorreo, clientePais, clienteNivel, clienteSaldo, productoMarca, productoPrecio }
+
+// Imprime los datos del cliente y sus hábitos de compra en formato de tabla
+console.log("Los datos del cliente y sus hábitos de compra son:")
+console.table(datosClientesPromociones)
+
+// OPERACIONES SOBRE OBJETOS 
+// UNIÓN DE OBJETOS usando el método de asignación (ASSIGN)
+console.log("%c10.- Unión de Objetos usando el método de asignación (ASSIGN)", style_console);
+
+// Imprime la estructura y valores actuales del objeto 'Producto'
+console.log("Imprimimos la estructura y valores del objeto PRODUCTO");
+console.table(Producto);
+
+// Imprime la estructura y valores actuales del objeto 'Pedido'
+console.log("Imprimimos la estructura y valores del objeto PEDIDO");
+console.table(Pedido);
+
+// Unión de los objetos 'Producto' y 'Pedido' en un nuevo objeto 'VENTA' usando Object.assign
+// Nota: Object.assign puede sobrescribir propiedades si tienen el mismo nombre
+const VENTA = Object.assign(Producto, Pedido);
+
+// Comentario sobre el uso de Object.assign y la posible pérdida de información
+/// assign puede perder información asi que hay que tener cuidado
+
+// Imprime el objeto 'VENTA' después de la unión de 'Producto' y 'Pedido' en formato de tabla
+console.log("Imprimimos ya las dos tablas juntas por el método assign")
+console.table(VENTA);
+
+// Creación de una copia del objeto 'Producto' para evitar la mutación del objeto original
+let Producto3 = { ...Producto }
+
+// Unión de 'Producto3' y 'Pedido' en un nuevo objeto 'Venta' usando Object.assign
+const Venta = Object.assign(Producto3, Pedido);
+console.log("Checamos")
+console.table(Venta)
+
+// UNIÓN DE OBJETOS usando el SPREAD OPERATOR (...)
+console.log("%c11.- Unión de Objetos usando el SPREAD OPERATOR (...)", style_console);
+
+// Asegura que el ID del producto sea 100 antes de la unión
+Producto.ID = 100
+
+// Creación de un nuevo objeto 'Venta2' que fusiona 'Producto', 'Comprador' y 'Pedido' usando el Spread Operator para evitar pérdida de información
+let Venta2 = {
+    Producto: { ...Producto },      // Copia del objeto 'Producto'
+    Comprador: { ...Comprador },    // Copia del objeto 'Comprador'
+    Pedido: { ...Pedido }           // Copia del objeto 'Pedido'
+}
+
+// Imprime el objeto fusionado 'Venta2' en formato de tabla
+console.log("Fusionamos los 3 objetos en uno nuevo, sin pérdida de información")
+console.log(Venta2);
+console.table(Venta2);
+
+// MUTABILIDAD POST UNION DE OBJETOS
+console.log("%c12.- Mutabilidad POST unión de Objetos", style_console);
+
+// Verifica el estatus de mutabilidad de los objetos 'Pedido', 'Comprador' y 'Producto'
+
+// Verificación del objeto 'Pedido'
+console.log("Vamos a verificar el estatus de mutabilidad del objeto PEDIDO")
+console.log(`Está el objeto de Pedido Congelado? : ${Object.isFrozen(Pedido)}`); // Verifica si 'Pedido' está congelado
+console.log(`Está el objeto de Pedido Sellado? : ${Object.isSealed(Pedido)}`);  // Verifica si 'Pedido' está sellado
+
+// Verificación del objeto 'Comprador'
+console.log("Vamos a verificar el estatus de mutabilidad del objeto COMPRADOR")
+console.log(`Está el objeto de Comprador Congelado? : ${Object.isFrozen(Comprador)}`); // Verifica si 'Comprador' está congelado
+console.log(`Está el objeto de Comprador Sellado? : ${Object.isSealed(Comprador)}`);    // Verifica si 'Comprador' está sellado
+
+// Verificación del objeto 'Producto'
+console.log("Vamos a verificar el estatus de mutabilidad del objeto PRODUCTO")
+console.log(`Está el objeto de Producto Congelado? : ${Object.isFrozen(Producto)}`); // Verifica si 'Producto' está congelado
+console.log(`Está el objeto de Producto Sellado? : ${Object.isSealed(Producto)}`);   // Verifica si 'Producto' está sellado
+
+// Intento de modificar el objeto 'Producto' después de las uniones
+// Agrega una nueva propiedad 'isLegacy' al objeto 'Producto'
+Producto[`isLegacy`] = false;
+console.log(Producto) // Imprime el objeto 'Producto' actualizado
+
+// Imprime el objeto 'Venta2' para verificar si se reflejan los cambios
+console.table(Venta2)
