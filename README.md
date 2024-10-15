@@ -7,14 +7,14 @@ Previo a iniciar el desarrollo de softwarepara web usando el framework de NodeJS
 
 ## Historial de Prácticas 
 
-|No.|Descripción|Potenciador|Estatus|
+|No.|Descripción|Potenciadores|Estatus|
 |--|--|--|--|
-|1.|Metodología de Evaluación|1|Finalizada|
+|1.|Metodo de Evaluación|1|Finalizada|
 |2.|Inicialización del Proyecto de Fundamentos de JS|5|Finalizada|
-|3.|Declaración de Variables(Undefined/Booolean/Number)|10|Finalizada|
-|4.|Declaración de Variables(String/BigInit/Symbol/null)|6|Finalizada|
-|5.|Introducción a objetos|Por definir|Activa|
-
+|3.|Declaracion de variables (Undefined,Boolean,Number)|10|Finalizada|
+|4.|Declaracion de variables (String,Bigint,Symbol,Null,Function)|6|Finalizada|
+|5.|introduccion a Objetos|19|Finalizada|
+|6.|Repaso de arreglos (Arrays)|Pendiente|Activa|
 
 ### Autor 
 José Arturo García González 
